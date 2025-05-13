@@ -20,7 +20,10 @@ RUN mkdir -p ${XMAGE_DIR} \
         -O /tmp/xmage.zip \
     && 7za x /tmp/xmage.zip -o${XMAGE_DIR} \
     && rm -f /tmp/xmage.zip \
+    && sudo chown gbraad -R ${XMAGE_DIR}/* \
     && git config -f /etc/rdesktop/rdesktop.ini rdesktop.title "Personal XMage ${XMAGE_VERSION}" \
-    && git config -f /etc/rdesktop/rdesktop.ini rdesktop.exec "bash ${XMAGE_DIR}/run-LAUNCHER.cmd"
+    && git config -f /etc/rdesktop/rdesktop.ini rdesktop.exec "~/.local/bin/start-xmage.sh"
+
+COPY start-xmage.sh ~gbraad/.local/bin/
 
 #ENTRYPOINT ["/sbin/init"]
