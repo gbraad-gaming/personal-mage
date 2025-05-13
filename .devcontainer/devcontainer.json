@@ -1,0 +1,13 @@
+{
+    "name": "XMage remote desktop environment",
+    "image": "ghcr.io/gbraad-gaming/xmage:latest",
+    "runArgs": [ "--cap-add=NET_ADMIN", "--cap-add=NET_RAW", "--device=/dev/net/tun", "--device=/dev/fuse" ],
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.Theme-TomorrowKit"
+            ]
+        }
+    }
+}
